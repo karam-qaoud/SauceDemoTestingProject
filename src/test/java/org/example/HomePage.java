@@ -10,20 +10,6 @@ public class HomePage {
 
     private static final String PAGE_URL = "https://www.saucedemo.com/";
 
-    // ===================================== Login Locators =====================================
-
-    public static final By USERNAME = By.id("user-name");
-    public static final By PASSWORD = By.id("password");
-
-    // ===================================== Login Elements =====================================
-    @FindBy(id = "login-button")
-    private WebElement loginButton;
-    @FindBy(xpath = "//*[@id=\"login_button_container\"]/div/form/div[3]/h3")
-    private WebElement loginErrorMessage;
-
-    @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/span")
-    private WebElement loginSuccessMessage;
-
     private WebDriver driver;
 
     public HomePage(WebDriver driver) {
@@ -44,6 +30,22 @@ public class HomePage {
         return driver.findElement(locator);
     }
 
+
+    // ===================================== Login Locators =====================================
+
+    public static final By USERNAME = By.id("user-name");
+    public static final By PASSWORD = By.id("password");
+
+    // ===================================== Login Elements =====================================
+    @FindBy(id = "login-button")
+    private WebElement loginButton;
+    @FindBy(xpath = "//*[@id=\"login_button_container\"]/div/form/div[3]/h3")
+    private WebElement loginErrorMessage;
+
+    @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/span")
+    private WebElement loginSuccessMessage;
+
+
     // ===================================== Login form methods =====================================
 
     public void clickLoginButton() {
@@ -57,5 +59,51 @@ public class HomePage {
     public String getLoginSuccessMessage() {
         return loginSuccessMessage.getText();
     }
+
+    // ===================================== Sort Elements elements =====================================
+
+    @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/div[2]/span/select/option[1]")
+    private WebElement sortAtoZ;
+
+    @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/div[2]/span/select/option[2]")
+    private WebElement sortZtoA;
+
+    @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/div[2]/span/select/option[3]")
+    private WebElement sortLowToHigh;
+
+    @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/div[2]/span/select/option[4]")
+    private WebElement sortHighToLow;
+
+    @FindBy(xpath = "//*[@id=\"inventory_container\"]/div/div[1]/div[2]/div[1]/a/div")
+    private WebElement firstProductName;
+
+    @FindBy(xpath = "//*[@id=\"inventory_container\"]/div/div[1]/div[2]/div[2]/div")
+    private WebElement firstProductPrice;
+
+
+    // ===================================== Sort form methods =====================================
+
+    public void clickSortAtoZOption() {
+        sortAtoZ.click();
+    }
+    public void clickSortZtoAOption() {
+        sortZtoA.click();
+    }
+    public void clickSortLowToHighOption() {
+        sortLowToHigh.click();
+    }
+    public void clickSortHighToLowOption() {
+        sortHighToLow.click();
+    }
+
+
+    public String getFirstProductName() {
+        return firstProductName.getText();
+    }
+
+    public String getFirstProductPrice() {
+        return firstProductPrice.getText();
+    }
+
 
 }

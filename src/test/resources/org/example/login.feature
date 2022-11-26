@@ -1,4 +1,4 @@
-Feature: Log in to PARA BANK
+Feature: Log in to Sauce Demo
   Background:
     Given the homepage is open
 

@@ -1,4 +1,4 @@
-Feature: Log in to PARA BANK
+Feature: Log in to Sauce Demo
   Background:
     Given the homepage is open
 
@@ -17,7 +17,7 @@ Feature: Log in to PARA BANK
     | locked_out_user | secret_sauce | Epic sadface: Sorry, this user has been locked out. |
 
 
-  Scenario Outline: Successsful login
+  Scenario Outline: Successful login
     Given the Username is filled with "<username>"
     And the Password is filled with "secret_sauce"
     When the Login button is clicked

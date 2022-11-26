@@ -33,6 +33,8 @@ public class StepDefs {
         homePage.openPage();
     }
 
+    // ===================================== Login Step Defs =====================================
+
     @Given("the Username is filled with {string}")
     public void theUsernameIsFilledWith(String arg0) {
         homePage.fillField(HomePage.USERNAME, arg0);
@@ -56,5 +58,30 @@ public class StepDefs {
     @Then("the user should be directed to the products page with the {string} title")
     public void theUserShouldBeDirectedToTheProductsPageWithTheTitle(String arg0) {
         Assert.assertEquals(arg0, homePage.getLoginSuccessMessage());
+    }
+
+    // ===================================== Sorting Step Defs =====================================
+
+    @When("the user sorts the products by {string}")
+    public void theUserSortsTheProductsBy(String arg0) {
+        if(arg0.equals("NAME (A TO Z)")) {
+            homePage.clickSortAtoZOption();
+        } else if (arg0.equals("NAME (Z TO A)")) {
+            homePage.clickSortZtoAOption();
+        } else if (arg0.equals("PRICE (LOW TO HIGH)")) {
+            homePage.clickSortLowToHighOption();
+        } else if (arg0.equals("PRICE (HIGH TO LOW)")) {
+            homePage.clickSortHighToLowOption();
+        }
+    }
+
+    @Then("the first product name should be {string}")
+    public void theProductsNameShouldBe(String arg0) {
+        Assert.assertEquals(arg0, homePage.getFirstProductName());
+    }
+
+    @Then("the first product price should be {string}")
+    public void theProductsPriceShouldBe(String arg0) {
+        Assert.assertEquals(arg0, homePage.getFirstProductPrice());
     }
 }
