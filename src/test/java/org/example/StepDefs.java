@@ -84,4 +84,32 @@ public class StepDefs {
     public void theProductsPriceShouldBe(String arg0) {
         Assert.assertEquals(arg0, homePage.getFirstProductPrice());
     }
+
+    // ===================================== Shoping Cart Step Defs =====================================
+
+    @Given("the {string} is added to the cart")
+    public void theIsAddedToTheCart(String arg0) {
+        if(arg0.equals("Sauce Labs Backpack")) {
+            homePage.addBackPackToCart();
+        } else if (arg0.equals("Sauce Labs Bike Light")) {
+            homePage.addBikeLightToCart();
+        } else if (arg0.equals("Sauce Labs Bolt T-Shirt")) {
+            homePage.addTShirtToCart();
+        } else if (arg0.equals("Sauce Labs Fleece Jacket")) {
+            homePage.addFleeceToCart();
+        } else if (arg0.equals("Sauce Labs Onesie")) {
+            homePage.addOnesieToCart();
+        }
+
+    }
+
+    @When("the cart icon is clicked")
+    public void theCartIconIsClicked() {
+        homePage.clickOnCart();
+    }
+
+    @Then("the last cart item should be {string}")
+    public void theFirstCartItemShouldBe(String arg0) {
+        Assert.assertEquals(arg0, homePage.getLastItemInCartName());
+    }
 }

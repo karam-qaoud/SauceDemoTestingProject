@@ -60,7 +60,7 @@ public class HomePage {
         return loginSuccessMessage.getText();
     }
 
-    // ===================================== Sort Elements elements =====================================
+    // ===================================== Sort Elements =====================================
 
     @FindBy(xpath = "//*[@id=\"header_container\"]/div[2]/div[2]/span/select/option[1]")
     private WebElement sortAtoZ;
@@ -105,5 +105,60 @@ public class HomePage {
         return firstProductPrice.getText();
     }
 
+
+
+
+
+
+    // ===================================== Shoping cart elements =====================================
+
+    @FindBy(className = "shopping_cart_link")
+    private WebElement shoppingCartLink;
+
+    @FindBy(id = "add-to-cart-sauce-labs-backpack")
+    private WebElement addBackpackToCartButton;
+
+    @FindBy(id = "add-to-cart-sauce-labs-bike-light")
+    private WebElement addSauceLabsBikeLightToCartButton;
+
+    @FindBy(id = "add-to-cart-sauce-labs-bolt-t-shirt")
+    private WebElement addSauceLAbsBoltTShirtToCartButton;
+
+    @FindBy(id = "add-to-cart-sauce-labs-fleece-jacket")
+    private WebElement addSauceLabsFleeceJacketToCartButton;
+
+    @FindBy(id = "add-to-cart-sauce-labs-onesie")
+    private WebElement addSauceLabsOnesieToCartButton;
+
+    @FindBy(css = "#cart_contents_container > div > div.cart_list > div:last-child > div.cart_item_label > a > div")
+
+    private WebElement lastItemInCart;
+    // ===================================== Sort form methods =====================================
+    public void addBackPackToCart() {
+        addBackpackToCartButton.click();
+    }
+
+    public void addBikeLightToCart() {
+        addSauceLabsBikeLightToCartButton.click();
+    }
+
+    public void addTShirtToCart() {
+        addSauceLAbsBoltTShirtToCartButton.click();
+    }
+
+    public void addFleeceToCart() {
+        addSauceLabsFleeceJacketToCartButton.click();
+    }
+
+    public void addOnesieToCart() {
+        addSauceLabsOnesieToCartButton.click();
+    }
+    public void clickOnCart() {
+        shoppingCartLink.click();
+    }
+
+    public String getLastItemInCartName() {
+        return lastItemInCart.getText();
+    }
 
 }
