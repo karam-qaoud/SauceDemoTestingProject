@@ -10,14 +10,21 @@ Feature: Log in to PARA BANK
 
     Examples:
     | username | password | error message |
-    |karam_user | | Please enter a username and password. |
-    | | karamPASSWORD | Please enter a username and password. |
-    | | | Please enter a username and password. |
+    | | | Epic sadface: Username is required |
+    | | password | Epic sadface: Username is required |
+    | user | | Epic sadface: Password is required |
+    | user | password | Epic sadface: Username and password do not match any user in this service |
+    | locked_out_user | secret_sauce | Epic sadface: Sorry, this user has been locked out. |
 
 
-  Scenario: Registered user
-    Given the Username is filled with "registeredAccount101"
-    And the Password is filled with "newPassword"
+  Scenario Outline: Successsful login
+    Given the Username is filled with "<username>"
+    And the Password is filled with "secret_sauce"
     When the Login button is clicked
-    Then the user should be logged in and a "Welcome" message is displayed
+    Then the user should be directed to the products page with the "PRODUCTS" title
+    Examples:
+      | username |
+      | standard_user |
+      | problem_user |
+      | performance_glitch_user |
 
