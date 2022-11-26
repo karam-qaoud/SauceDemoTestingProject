@@ -30,7 +30,7 @@ Feature: Registering an account in PARA BANK
     And the Confirm error field should show "<confirmErrorMessage>"
     Examples:
       | firstName | lastName | address | city | state | zipCode | phoneNumber | ssn | username | password | confirm | firstNameErrorMessage | lastNameErrorMessage | addressErrorMessage | cityErrorMessage | stateNameErrorMessage | zipCodeErrorMessage | phoneNumberErrorMessage | ssnErrorMessage | usernameErrorMessage | passwordErrorMessage | confirmErrorMessage |
-      | TesterFirstName | TesterLastName | myAddress | myCity | myState | 1234 | 123456789 | 123 | newUserNameForTesting | newPassword | newPassword |  |                      |                     |                  |                       |                     |                         |                 |                      |                      |                     |
+      | TesterFirstName | TesterLastName | myAddress | myCity | myState | 1234 | 123456789 | 123 | newUserNameForTestingUsername1104 | newPassword | newPassword |  |                      |                     |                  |                       |                     |                         |                 | This username already exists. |                      |                     |
       |  |  |  |  |  |  |  |  |  |  | | First name is required. | Last name is required. | Address is required. | City is required. | State is required. | Zip Code is required. | | Social Security Number is required. | 	Username is required. | Password is required. | Password confirmation is required. |
       |  |  |  |  |  |  | 123456789 |  |  |  | | First name is required. | Last name is required. | Address is required. | City is required. | State is required. | Zip Code is required. | | Social Security Number is required. | 	Username is required. | Password is required. | Password confirmation is required. |
       | TesterFirstName | TesterLastName | myAddress | myCity | myState | 1234 | 123456789 | 123 | newUserNameForTesting | newPassword | newPassword |  |                      |                     |                  |                       |                     |                         |                 |	This username already exists. |                      |                     |
@@ -45,8 +45,8 @@ Feature: Registering an account in PARA BANK
     And the Zip Code is filled with "1234"
     And the Phone # is filled with "123456789"
     And the SSN is filled with "123"
-    And the Username is filled with "registeredAccount123123123"
-    And the Password is filled with "registeredAccount"
+    And the Register Username is filled with "registeredAccount103"
+    And the Register Password is filled with "newPassword"
     And the Confirm is filled with "newPassword"
     When Register button is clicked
     Then the message "Your account was created successfully. You are now logged in." should be displayed

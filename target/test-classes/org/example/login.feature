@@ -16,8 +16,8 @@ Feature: Log in to PARA BANK
 
 
   Scenario: Registered user
-    Given the Username is filled with "registeredAccount"
-    And the Password is filled with "registeredAccount"
+    Given the Username is filled with "registeredAccount101"
+    And the Password is filled with "newPassword"
     When the Login button is clicked
     Then the user should be logged in and a "Welcome" message is displayed
 
