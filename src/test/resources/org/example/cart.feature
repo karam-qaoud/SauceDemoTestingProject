@@ -6,7 +6,7 @@ Feature: Shoping cart
     And the Password is filled with 'secret_sauce'
     And the Login button is clicked
 
-  Scenario Outline: Shoping cart receives items
+  Scenario Outline: Adding items to cart
     Given the "<item>" is added to the cart
     When the cart icon is clicked
     Then the last cart item should be "<item>"
