@@ -228,4 +228,26 @@ public class HomePage {
     public String getTotal() {
         return totalLabel.getText();
     }
+
+    // ===================================== Logout elements =====================================
+    @FindBy(id = "react-burger-menu-btn")
+    private WebElement sideMenuButton;
+
+    @FindBy(id = "logout_sidebar_link")
+    private WebElement logoutButton;
+
+
+    // ===================================== Logout methods =====================================
+    public void clickSideMenuButton() {
+        sideMenuButton.click();
+    }
+
+    public void clickLogoutButton() {
+        logoutButton.click();
+    }
+
+    public Boolean doesLoginFormExist() {
+        return driver.findElements(By.className("login-box")).size() != 0;
+    }
+
 }

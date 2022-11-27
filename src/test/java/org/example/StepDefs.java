@@ -170,4 +170,20 @@ public class StepDefs {
     public void total$ShouldBeShown(String arg0) {
         Assert.assertEquals(homePage.getTotal(), arg0);
     }
+
+    // ===================================== Logout form Step Defs =====================================
+    @Given("the side menu icon is clicked")
+    public void theSideMenuIconIsClicked() {
+        homePage.clickSideMenuButton();
+    }
+
+    @When("the Logout button is clicked")
+    public void theLogoutButtonIsClicked() {
+        homePage.clickLogoutButton();
+    }
+
+    @Then("the user exits and the login form appears.")
+    public void theUserExitsAndTheLoginFormAppears() {
+        Assert.assertEquals(homePage.doesLoginFormExist(), true);
+    }
 }
