@@ -48,7 +48,7 @@ public class HomePage {
     private WebElement loginSuccessMessage;
 
 
-    // ===================================== Login form methods =====================================
+    // ===================================== Login methods =====================================
 
     public void clickLoginButton() {
         loginButton.click();
@@ -83,7 +83,7 @@ public class HomePage {
     private WebElement firstProductPrice;
 
 
-    // ===================================== Sort form methods =====================================
+    // ===================================== Sort methods =====================================
 
     public void clickSortAtoZOption() {
         sortAtoZ.click();
@@ -210,6 +210,7 @@ public class HomePage {
     @FindBy(className = "summary_total_label")
     private WebElement totalLabel;
 
+    // ===================================== Checkout form locators =====================================
     public static final By FIRST_NAME = By.id("first-name");
     public static final By LAST_NAME = By.id("last-name");
     public static final By POSTAL_CODE = By.id("postal-code");
@@ -224,7 +225,6 @@ public class HomePage {
     public String getErrorMessage() {
         return errorMessage.getText();
     }
-
     public String getTotal() {
         return totalLabel.getText();
     }
