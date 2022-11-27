@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.concurrent.TimeUnit;
+
 public class HomePage {
 
     private static final String PAGE_URL = "https://www.saucedemo.com/";
@@ -106,14 +108,16 @@ public class HomePage {
     }
 
 
-
-
-
-
     // ===================================== Shoping cart elements =====================================
+
+    @FindBy(className = "shopping_cart_badge")
+    public WebElement numberOfItemsInShopingCart;
 
     @FindBy(className = "shopping_cart_link")
     private WebElement shoppingCartLink;
+
+    @FindBy(css = "#cart_contents_container > div > div.cart_list > div:last-child > div.cart_item_label > a > div")
+    private WebElement lastItemInCart;
 
     @FindBy(id = "add-to-cart-sauce-labs-backpack")
     private WebElement addBackpackToCartButton;
@@ -130,10 +134,21 @@ public class HomePage {
     @FindBy(id = "add-to-cart-sauce-labs-onesie")
     private WebElement addSauceLabsOnesieToCartButton;
 
-    @FindBy(css = "#cart_contents_container > div > div.cart_list > div:last-child > div.cart_item_label > a > div")
 
-    private WebElement lastItemInCart;
-    // ===================================== Sort form methods =====================================
+    @FindBy(id = "remove-sauce-labs-backpack")
+    private WebElement removeBackpackFromCartButton;
+
+    @FindBy(id = "remove-sauce-labs-bike-light")
+    private WebElement removeSauceLabsBikeLightFromCartButton;
+
+    @FindBy(id = "remove-sauce-labs-bolt-t-shirt")
+    private WebElement removeSauceLAbsBoltTShirtFromCartButton;
+
+    @FindBy(id = "remove-sauce-labs-fleece-jacket")
+    private WebElement removeSauceLabsFleeceJacketFromCartButton;
+
+
+    // ===================================== Shoping cart methods =====================================
     public void addBackPackToCart() {
         addBackpackToCartButton.click();
     }
@@ -153,6 +168,27 @@ public class HomePage {
     public void addOnesieToCart() {
         addSauceLabsOnesieToCartButton.click();
     }
+
+    public void removeBackPackFromCart() {
+        removeBackpackFromCartButton.click();
+    }
+
+    public void removeBikeLightFromCart() {
+        removeSauceLabsBikeLightFromCartButton.click();
+    }
+
+    public void removeTShirtFromCart() {
+        removeSauceLAbsBoltTShirtFromCartButton.click();
+    }
+
+    public void removeFleeceFromCart() {
+        removeSauceLabsFleeceJacketFromCartButton.click();
+    }
+
+    public String getNumberOfItemsInShopingCart() {
+        return numberOfItemsInShopingCart.getText();
+    }
+
     public void clickOnCart() {
         shoppingCartLink.click();
     }

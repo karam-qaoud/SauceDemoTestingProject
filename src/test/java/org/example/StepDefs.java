@@ -100,7 +100,6 @@ public class StepDefs {
         } else if (arg0.equals("Sauce Labs Onesie")) {
             homePage.addOnesieToCart();
         }
-
     }
 
     @When("the cart icon is clicked")
@@ -111,5 +110,23 @@ public class StepDefs {
     @Then("the last cart item should be {string}")
     public void theFirstCartItemShouldBe(String arg0) {
         Assert.assertEquals(arg0, homePage.getLastItemInCartName());
+    }
+
+    @When("the remove button is clicked for {string}")
+    public void theRemoveButtonIsClickedFor(String arg0) {
+        if(arg0.equals("Sauce Labs Backpack")) {
+            homePage.removeBackPackFromCart();
+        } else if (arg0.equals("Sauce Labs Bike Light")) {
+            homePage.removeBikeLightFromCart();
+        } else if (arg0.equals("Sauce Labs Bolt T-Shirt")) {
+            homePage.removeTShirtFromCart();
+        } else if (arg0.equals("Sauce Labs Fleece Jacket")) {
+            homePage.removeFleeceFromCart();
+        }
+    }
+
+    @Then("the number of items in the cart should be {string}")
+    public void theNumberOfItemsInTheCartShouldBe(String arg0) {
+        Assert.assertEquals(arg0, homePage.getNumberOfItemsInShopingCart());
     }
 }

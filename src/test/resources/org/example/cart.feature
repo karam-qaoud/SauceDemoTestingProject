@@ -17,3 +17,13 @@ Feature: Shoping cart
       | Sauce Labs Bolt T-Shirt |
       | Sauce Labs Fleece Jacket |
       | Sauce Labs Onesie |
+
+  Scenario Outline: Removing items from cart
+    When the remove button is clicked for "<item>"
+    Then the number of items in the cart should be "<count>"
+    Examples:
+      | item | count |
+      | Sauce Labs Backpack | 4 |
+      | Sauce Labs Bike Light | 3 |
+      | Sauce Labs Bolt T-Shirt | 2 |
+      | Sauce Labs Fleece Jacket | 1 |
