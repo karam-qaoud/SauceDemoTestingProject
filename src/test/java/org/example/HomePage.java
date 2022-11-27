@@ -197,4 +197,35 @@ public class HomePage {
         return lastItemInCart.getText();
     }
 
+    // ===================================== Checkout form elements =====================================
+    @FindBy(id = "checkout")
+    private WebElement checkoutButton;
+
+    @FindBy(id = "continue")
+    private WebElement continueButton;
+
+    @FindBy(className = "error-message-container")
+    private WebElement errorMessage;
+
+    @FindBy(className = "summary_total_label")
+    private WebElement totalLabel;
+
+    public static final By FIRST_NAME = By.id("first-name");
+    public static final By LAST_NAME = By.id("last-name");
+    public static final By POSTAL_CODE = By.id("postal-code");
+
+    // ===================================== Checkout form methods =====================================
+    public void clickCheckoutButton() {
+        checkoutButton.click();
+    }
+    public void clickContinueButton() {
+        continueButton.click();
+    }
+    public String getErrorMessage() {
+        return errorMessage.getText();
+    }
+
+    public String getTotal() {
+        return totalLabel.getText();
+    }
 }

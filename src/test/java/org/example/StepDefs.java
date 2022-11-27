@@ -129,4 +129,45 @@ public class StepDefs {
     public void theNumberOfItemsInTheCartShouldBe(String arg0) {
         Assert.assertEquals(arg0, homePage.getNumberOfItemsInShopingCart());
     }
+
+    // ===================================== Checkout form Step Defs =====================================
+    @Given("the Sauce Labs Backpack is added to the cart")
+    public void theSauceLabsBackpackIsAddedToTheCart() {
+        homePage.addBackPackToCart();
+    }
+
+    @And("the checkout button is clicked")
+    public void theCheckoutButtonIsClicked() {
+        homePage.clickCheckoutButton();
+    }
+
+    @And("the First Name is filled with {string}")
+    public void theFirstNameIsFilledWith(String arg0) {
+        homePage.fillField(HomePage.FIRST_NAME, arg0);
+    }
+
+    @And("the Last Name is filled with {string}")
+    public void theLastNameIsFilledWith(String arg0) {
+        homePage.fillField(HomePage.LAST_NAME, arg0);
+    }
+
+    @And("the Zip Code is filled with {string}")
+    public void theZipCodeIsFilledWith(String arg0) {
+        homePage.fillField(HomePage.POSTAL_CODE, arg0);
+    }
+
+    @When("the Continue button is clicked")
+    public void theContinueButtonIsClicked() {
+        homePage.clickContinueButton();
+    }
+
+    @Then("This error message should be shown {string}")
+    public void thisErrorMessageShouldBeShown(String arg0) {
+        Assert.assertEquals(homePage.getErrorMessage(), arg0);
+    }
+
+    @Then("{string} should be shown")
+    public void total$ShouldBeShown(String arg0) {
+        Assert.assertEquals(homePage.getTotal(), arg0);
+    }
 }
